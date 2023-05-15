@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("description")->nullable();
             $table->unsignedBigInteger("parent_id")->nullable();
             $table->boolean("status")->default(0);
-            $table->boolean("future_status")->default(0);
+            $table->boolean("feature_status")->default(0);
             $table->integer("order")->default(0);
             $table->string("seo_description")->nullable();
             $table->string("seo_keywords")->nullable();

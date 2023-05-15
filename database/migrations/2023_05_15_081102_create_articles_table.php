@@ -17,24 +17,18 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("category_id");
             $table->unsignedBigInteger("user_id");
-
             $table->string("name", 80);
             $table->string("slug", 160);
-
             $table->text("body");
             $table->string("image")->nullable();
-            
             $table->boolean("status")->default(0);
             $table->string('tags')->nullable();
             $table->string("seo_description")->nullable();
             $table->string("seo_keywords")->nullable();
-
-
             $table->integer("read_time")->default(0);
             $table->integer("like_count")->default(0);
             $table->integer("view_count")->default(0);
             $table->dateTime("publish_date");
-            
             $table->timestamps();
 
 
