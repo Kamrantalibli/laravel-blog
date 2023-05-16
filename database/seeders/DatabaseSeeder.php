@@ -23,7 +23,13 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategorySeeder::class,
-            ArticleSeeder::class
+            ArticleSeeder::class,
+            ArticleCommentsSeeder::class,
+            FeatureArticleSeeder::class,
+            SettingsSeeder::class,
+            SocialMediaSeeder::class,
+            UserLikeArticleSeeder::class,
+            UserLogsSeeder::class
         ]);
     }
 }

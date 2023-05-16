@@ -22,8 +22,8 @@ return new class extends Migration
             $table->boolean("status")->default(0);
             $table->boolean("feature_status")->default(0);
             $table->integer("order")->default(0);
-            $table->string("seo_description")->nullable();
             $table->string("seo_keywords")->nullable();
+            $table->string("seo_description")->nullable();
             $table->timestamps();
 
             $table->foreign("parent_id")->references("id")->on("categories")->onDelete("cascade");

@@ -22,12 +22,11 @@ return new class extends Migration
             $table->tinyInteger("status")->default(0);
             $table->integer("like_count")->default(0);
             $table->integer("unlike_count")->default(0);
-
             $table->softDeletes();
             $table->timestamps();
 
 
-            $table->foreign("parent_id")->references("id")->on("article_comments");
+            // $table->foreign("parent_id")->references("id")->on("article_comments");
             $table->foreign("user_id")->references("id")->on("users");
             $table->foreign("article_id")->references("id")->on("articles");
         });

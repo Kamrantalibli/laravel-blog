@@ -17,7 +17,9 @@ class UserLogsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "process_id" => random_int(1,10),
+            "user_id" => random_int(1,10),
+            "process_type" => fake()->randomElement()
         ];
     }
 }
