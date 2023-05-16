@@ -11,8 +11,7 @@ class Category extends Model
     use HasFactory;
     protected $guarded = ["id", "created_at", "updated_at"];
 
-    public function parentCategory():HasOne
-    {
-        return $this->hasOne(Category::class, 'id', 'parent_id');
+    public function parentCategory():HasOne {
+        return $this->hasOne(Category::class,'id', 'parent_id');
     }
 }

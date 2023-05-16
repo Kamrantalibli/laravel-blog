@@ -42,6 +42,47 @@
                         <th scope="col">Actions</th>
                     </x-slot>
                     <x-slot name="rows">
+                        @foreach ($list as $item)
+                            <tr>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->slug }}</td>
+                                <td>{{ substr($item->description, 0, 20) }}</td>
+                                <td>
+                                    @if ($item->parentCategory)
+                                        {{ $item->parentCategory->name }}
+                                    @else
+                                        -----------
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->status)
+                                        <a href="javascript:void(0)" data-id="{{ $item->id }}" class="btn btn-success changeStatus" style="width: 100%">Active</a>
+                                    @else
+                                        <a href="javascript:void(0)" data-id="{{ $item->id }}" class="btn btn-danger changeStatus" style="width: 100%">Passive</a>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->feature_status)
+                                        <a href="javascript:void(0)" data-id="{{ $item->id }}" class="btn btn-success changeFeatureStatus" style="width: 100%">Active</a>
+                                    @else
+                                        <a href="javascript:void(0)" data-id="{{ $item->id }}" class="btn btn-danger changeFeatureStatus" style="width: 100%">Passive</a>
+                                    @endif
+                                </td>
+                                <td>{{ $item->order }}</td>
+                                <td>
+                                    <span>
+                                        <a href="javascript:void(0)" data-id="{{ $item->id }}" class="mr-4 editCategory" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <i class="fa fa-pencil text-muted"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" data-id="{{ $item->id }}" class="deleteCategory" data-toggle="tooltip" data-placement="top" title="Close">
+                                            <i class="fa fa-close text-danger"></i>
+                                        </a>   
+                                    </span>
+                                </td>
+                            </tr>   
+                        @endforeach    
+                    </x-slot>
+                    {{-- <x-slot name="rows">
                         @foreach($list as $item)
                             <tr>
                                 <td>{{ $item->name }}</td>
@@ -91,7 +132,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </x-slot>
+                    </x-slot> --}}
                 </x-bootstrap.table>
             </x-slot:body>
         </x-bootstrap.card>

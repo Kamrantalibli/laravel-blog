@@ -13,8 +13,8 @@ class CategoryController extends Controller
 
 
     public function list() {
-        $list = Category::all();
-        // dd($list);
+        $list = Category::with(['parentCategory'])->get();
+        
         return view("admin.category.list", compact('list'));
     }
 }
