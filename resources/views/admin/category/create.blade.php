@@ -13,8 +13,8 @@
         <x-bootstrap.card>
             <x-slot name="header">
                 <h4 class="card-title">Category Create</h4>
-                @if($errors->any())
-                    @foreach($errors->all() as $error)
+                @if ($errors->any()) 
+                    @foreach ($errors->all() as $error)
                         <div class="alert alert-danger">{{ $error }}</div>
                     @endforeach
                 @endif
@@ -38,7 +38,7 @@
                             <x-slot:label>Category Name</x-slot:label>
 
                             <x-slot:error>
-                                @if($errors->has("name"))
+                                @if ($errors->has("name"))
                                     {{ $errors->first("name") }}
                                 @endif
                             </x-slot:error>
